@@ -1,0 +1,34 @@
+﻿@model dynamic
+@using MusicStore.Models
+
+@{
+    Layout = null;
+}
+
+@helper RenderCd (MusicCd cd)
+{
+    
+    <p><b>Album:</b> @cd.Title</p>
+    <p><b>Artist:</b> @cd.Artist</p>
+    <p><b>Price:</b> @String.Format("{0:0.00}", cd.Price)</p>
+    <p><b>Publisher:</b> @cd.Released</p>  
+    <p><img src="content\images\@cd.ImageUrl" alt="@cd.Title" /></p>     
+                                                                
+}
+
+<span>
+    @RenderCd(ViewBag.MusicCd)
+</span>
+
+<div id="TracKList">
+    <P><b>Tracks:</b></p>
+    <ol>
+        @foreach (var track in ViewBag.MusicCd.TrackList)
+        {
+            <li> @track.Title (@track.Composer) @track.Lenght</li>
+             
+        }
+    </ol>
+</div>
+
+<p><b>Total playing time:</b> @ViewBag.MusicCd.GetPlayingTIme()</p>

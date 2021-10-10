@@ -1,0 +1,17 @@
+#Overview {
+    width: 500px;
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#Book {
+    /*width: 300px;*/
+    float:left; /* add this */
+    
+}
+#Album {
+    float: left;; /* if you don't want #second to wrap below #first */
+    border: 1px solid;
+}
+
+#TracKList {
+    float: left;; /* if you don't want #second to wrap below #first */
+}

@@ -1,0 +1,37 @@
+﻿@model dynamic
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="Overview">
+    <div id="Book">
+        <p><b>Title:</b> @ViewBag.Book.Title</p>
+        <p><b>Author:</b> @ViewBag.Book.Author</p>
+        <p><b>Price:</b> @String.Format("{0:0.00}", ViewBag.Book.Price)</p>
+        <p><b>Publisher:</b> @ViewBag.Book.Publisher</p>
+        <p><b>ISBN:</b> @ViewBag.Book.ISBN</p>
+        <p><img src="content\images\@ViewBag.Book.ImageUrl" alt="@ViewBag.Book.Title" /></p> 
+    </div>
+    
+    <div id="Album">
+        <p><b>Albyum:</b> @ViewBag.MusicCd.Title</p>
+        <p><b>Artist:</b> @ViewBag.MusicCd.Artist</p>
+        <p><b>Price:</b> @String.Format("{0:0.00}", ViewBag.MusicCd.Price)</p>
+        <p><b>Publisher:</b> @ViewBag.MusicCd.Label</p>
+        <p><img src="content\images\@ViewBag.MusicCd.ImageUrl" alt="@ViewBag.MusicCd.Title" /></p>
+    </div>
+    
+    <div id="TracKList">
+        <P><b>Tracks:</b></p>
+        <ol>
+        @foreach (var track in ViewBag.MusicCd.Tracks)
+        {
+            <li> @track</li>
+             
+        }
+        </ol>
+    </div>
+
+    </div>

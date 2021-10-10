@@ -1,0 +1,43 @@
+﻿@model dynamic
+@using MusicStore.Models
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+
+@helper RenderBook (Book book)
+{
+    
+    <p><b>Title:</b> @book.Title</p>
+    <p><b>Price:</b> @String.Format("{0:0.00}", book.Price)</p>
+    <p><b>Author:</b> @book.Author</p>
+    
+    <p><b>Publisher:</b> @book.Published</p>
+
+}
+
+
+@helper RenderCd (MusicCd cd)
+{
+    
+    <p><b>Title:</b> @cd.Title</p>
+    <p><b>Price:</b> @String.Format("{0:0.00}", cd.Price)</p>
+    <p><b>Author:</b> @cd.Artist</p>
+    
+    <p><b>Publisher:</b> @cd.Released</p>            
+
+}
+
+
+<p> <b>Book:</b></p>
+<span>
+    @RenderBook(ViewBag.Book)
+</span>
+<p> <b> Album</b></p>
+<span>
+    @RenderCd(ViewBag.MusicCd)
+</span>
+
+
